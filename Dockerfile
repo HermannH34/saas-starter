@@ -14,15 +14,19 @@ COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
 ENV NEXT_TELEMETRY_DISABLED=1
-# Dummy values so `next build` doesn't crash on env validation at build time.
-# Real values are injected at runtime by FluxCD.
-ENV POSTGRES_URL=postgresql://placeholder:placeholder@localhost:5432/placeholder
-ENV AUTH_SECRET=placeholder
-ENV BASE_URL=http://localhost:3000
-ENV STRIPE_SECRET_KEY=sk_test_placeholder
-ENV STRIPE_WEBHOOK_SECRET=whsec_placeholder
 
-RUN pnpm build
+ARG POSTGRES_URL
+ARG AUTH_SECRET
+ARG BASE_URL
+ARG STRIPE_SECRET_KEY
+ARG STRIPE_WEBHOOK_SECRET
+
+RUN POSTGRES_URL=$POSTGRES_URL \
+    AUTH_SECRET=$AUTH_SECRET \
+    BASE_URL=$BASE_URL \
+    STRIPE_SECRET_KEY=$STRIPE_SECRET_KEY \
+    STRIPE_WEBHOOK_SECRET=$STRIPE_WEBHOOK_SECRET \
+    pnpm build
 
 # --- runner: production image ---
 FROM node:22-alpine AS runner

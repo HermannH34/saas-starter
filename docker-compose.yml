@@ -1,0 +1,14 @@
+services:
+  app:
+    build:
+      context: .
+      args:
+        - POSTGRES_URL
+        - AUTH_SECRET
+        - BASE_URL
+        - STRIPE_SECRET_KEY
+        - STRIPE_WEBHOOK_SECRET
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
