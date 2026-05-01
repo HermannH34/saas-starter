@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { checkoutAction } from '@/lib/payments/actions';
 import { Check } from 'lucide-react';
 import { getStripePrices, getStripeProducts } from '@/lib/payments/stripe';

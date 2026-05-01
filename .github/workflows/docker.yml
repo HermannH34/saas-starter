@@ -40,6 +40,7 @@ jobs:
           tags: |
             type=sha,prefix=,format=short
             type=raw,value=latest,enable=${{ github.ref == 'refs/heads/main' }}
+            type=raw,value={{date 'YYYYMMDD-HHmmss'}},enable=${{ github.ref == 'refs/heads/main' }}
 
       - name: Build and push
         uses: docker/build-push-action@v6
