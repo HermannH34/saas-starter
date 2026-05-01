@@ -15,13 +15,11 @@ COPY . .
 
 ENV NEXT_TELEMETRY_DISABLED=1
 
-# ARG (pas ENV) : disponibles pendant le build uniquement, absents de l'image finale.
-# Les vraies valeurs sont injectées au runtime par FluxCD/Kubernetes.
-ARG POSTGRES_URL=postgresql://placeholder:placeholder@localhost:5432/placeholder
-ARG AUTH_SECRET=placeholder
-ARG BASE_URL=http://localhost:3000
-ARG STRIPE_SECRET_KEY=sk_test_placeholder
-ARG STRIPE_WEBHOOK_SECRET=whsec_placeholder
+ARG POSTGRES_URL
+ARG AUTH_SECRET
+ARG BASE_URL
+ARG STRIPE_SECRET_KEY
+ARG STRIPE_WEBHOOK_SECRET
 
 RUN POSTGRES_URL=$POSTGRES_URL \
     AUTH_SECRET=$AUTH_SECRET \

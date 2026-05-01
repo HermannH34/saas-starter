@@ -51,3 +51,9 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+          build-args: |
+            POSTGRES_URL=postgresql://placeholder:placeholder@localhost/placeholder
+            AUTH_SECRET=placeholder
+            BASE_URL=http://localhost:3000
+            STRIPE_SECRET_KEY=sk_test_placeholder
+            STRIPE_WEBHOOK_SECRET=whsec_placeholder
