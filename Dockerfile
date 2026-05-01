@@ -19,6 +19,8 @@ ENV NEXT_TELEMETRY_DISABLED=1
 ENV POSTGRES_URL=postgresql://placeholder:placeholder@localhost:5432/placeholder
 ENV AUTH_SECRET=placeholder
 ENV BASE_URL=http://localhost:3000
+ENV STRIPE_SECRET_KEY=sk_test_placeholder
+ENV STRIPE_WEBHOOK_SECRET=whsec_placeholder
 
 RUN pnpm build
 
