@@ -13,56 +13,59 @@ const DATA = {
       "Les ingénieurs DevOps, SRE et Platform sont les plus difficiles à recruter.",
     headlinePart2: "On ne fait que ça.",
     subtitle:
-      "Iterato est une agence de recrutement spécialisée dans les profils d'infrastructure. Pas de généralisme, pas de CVthèque. Une approche terrain, un réseau réel, des profils qualifiés techniquement avant d'arriver chez vous.",
+      "Iterato connecte les équipes infras avec les meilleurs ingénieurs DevOps, SRE et Platform Engineer. Une seule spécialité, un vrai réseau, un DevOps actif qui teste chaque profil.",
     ctaPrimary: "Déposer un besoin",
-    ctaSecondary: "Voir comment on travaille",
+    ctaSecondary: "Rejoindre le réseau",
   },
   team: {
-    tagline:
-      "Deux expertises qui ne se trouvent jamais ensemble dans un même cabinet.",
+    tagline: "Une recruteuse. Un ingénieur DevOps. Une seule niche.",
     members: [
       {
         initial: "C",
         name: "Clara",
-        role: "Le recrutement, c'est son métier",
-        bio: "Clara a construit sa carrière dans l'écosystème startup et scale-up. Elle sait ce que c'est de recruter dans l'urgence, avec des budgets tendus, sur des profils que personne ne comprend vraiment dans les cabinets classiques. Elle ne vend pas des candidats. Elle trouve les bonnes personnes pour les bons moments de vie d'une boîte.",
+        role: "La recruteuse",
+        bio: "Une conviction : le bon profil n'est pas le même pour tout le monde. La bonne personne, c'est celle qui correspond à cette équipe, à ce moment précis, à cette étape de vie de la boîte. Elle ne vous envoie pas des profils pour en envoyer — elle va chercher les meilleurs, qu'ils soient en recherche ou pas. Elle a choisi la niche DevOps, SRE et Platform Engineer. Elle sait où ils sont, ce qui les motive, ce qui les fait bouger.",
       },
       {
         initial: "H",
         name: "Hermann",
-        role: "Il a fait le métier avant de le recruter",
-        bio: "Hermann a été DevOps, SRE et Platform Engineer sur le terrain. Il a géré des incidents à 3h du matin, construit des pipelines CI/CD from scratch, bataillé avec Kubernetes en production. Quand il lit un CV, il sait exactement ce qui est vrai, ce qui est gonflé, et ce qui manque. Aucun candidat ne passe sans passer par lui.",
+        role: "L'ingénieur DevOps",
+        bio: "[à compléter]",
       },
     ],
-    conclusion:
-      "Ensemble, ils font ce qu'un cabinet généraliste ne peut pas faire : recruter vite ET recruter juste.",
   },
   process: {
-    tagline: "Un process conçu pour aller vite sans sacrifier la qualité.",
+    tagline: "Comment ça marche",
     steps: [
       {
         number: "01",
-        title: "On comprend votre contexte (pas juste la fiche de poste)",
+        title: "On cadre ensemble",
         description:
-          "Un call avec vous et votre équipe tech. On veut comprendre votre stack, votre culture, ce qui a déjà échoué et pourquoi. Clara capte le contexte humain, Hermann traduit les enjeux techniques. Ce brief change tout.",
+          "Un call de 30 minutes avec Clara et Hermann. On comprend votre stack, votre équipe, votre contexte. Pas un formulaire. Une vraie conversation technique.",
       },
       {
         number: "02",
-        title: "On active le réseau, pas une base de données",
+        title: "On va chercher les profils",
         description:
-          "On ne publie pas d'annonce. On contacte directement les profils qui correspondent, y compris ceux qui ne cherchent pas activement. Ces gens-là répondent à Hermann parce qu'il parle leur langue.",
+          "On ne publie pas une annonce et on attend. On active notre réseau, on approche les bons profils y compris ceux qui ne cherchent pas.",
       },
       {
         number: "03",
-        title: "Hermann valide techniquement. Clara valide humainement.",
+        title: "On teste avant vous",
         description:
-          "Chaque candidat est qualifié en double : compétences réelles versus ce qui est annoncé sur le CV, et adéquation avec votre contexte. Vous ne recevez jamais plus de 3 profils. Mais chacun est sérieux.",
+          "Chaque profil est qualifié techniquement par notre ingénieur DevOps en activité. Vous ne recevez que des profils qui tiennent la route sur le fond.",
       },
       {
         number: "04",
-        title: "On reste là après la signature",
+        title: "On vous présente les meilleurs",
         description:
-          "L'intégration est le moment où tout peut déraper. On reste impliqués 3 mois. Si quelque chose cloche, on le sait avant vous — et on agit.",
+          "Pas 10 CVs. 2 ou 3 profils max, tous pertinents. Avec un brief détaillé pour chacun.",
+      },
+      {
+        number: "05",
+        title: "On suit les premières semaines",
+        description:
+          "Le placement ne s'arrête pas à la signature. On reste en contact avec le candidat et avec vous pendant le premier mois — pour s'assurer que ça s'intègre bien des deux côtés.",
       },
     ],
   },
@@ -74,25 +77,104 @@ const DATA = {
     mention: "Réponse sous 48h · Confidentiel",
   },
   testimonials: {
-    tagline: "Ils ont recruté avec Iterato. Voici ce qu'ils en disent.",
+    tagline: "Premiers profils présentés en moins de 2 semaines.",
     quotes: [
       {
-        text: 'En six mois à chercher seuls, on avait vu défiler des profils qui ne comprenaient pas ce que "SLO" voulait dire. Iterato nous a présenté notre SRE Senior en 10 jours. Le fait qu\'Hermann ait lui-même fait ce métier change radicalement la qualité de ce qui nous est envoyé.',
+        text: "Franchement on s'attendait pas à aller aussi vite. On cherchait depuis 4 mois. Iterato nous a présenté le bon profil en 10 jours. Pas 10 CVs, le bon.",
         author: "CTO, fintech parisienne, Série B",
       },
       {
-        text: "Ce qui m'a convaincu c'est leur honnêteté dès le premier call. Ils nous ont dit que le profil qu'on cherchait allait être compliqué à trouver, pourquoi, et comment ils allaient s'y prendre. Pas de promesses en l'air. Et ils ont livré.",
+        text: "Ils avaient compris ce qu'on cherchait mieux que certains candidats qu'on avait vus avant. La précision était là dès le premier call. Ils connaissaient notre stack, notre contexte. On a gagné du temps.",
         author: "VP Engineering, scale-up SaaS, Lyon",
       },
       {
-        text: "Clara a su vendre notre projet à des candidats passifs qui n'avaient aucune raison de bouger. Elle comprend ce qui motive ces profils-là. Ce n'est pas qu'une question de salaire, et elle le sait.",
+        text: "Pour une fois on n'a pas eu à expliquer ce que voulait dire Kubernetes à notre recruteur. Clara a su approcher les bons profils — même ceux qui ne cherchaient pas. Pas besoin de lui répéter deux fois ce qu'on voulait.",
         author: "DRH, ETI en transformation digitale, Bordeaux",
       },
     ],
   },
+  jobs: {
+    tagline: "Postes en cours",
+    listings: [
+      {
+        title: "Senior DevOps Engineer",
+        location: "Paris",
+        type: "CDI",
+        salary: "70-90k",
+        description: "Notre client, une fintech en pleine croissance, cherche un Senior DevOps pour renforcer son équipe infrastructure.",
+      },
+      {
+        title: "SRE Lead",
+        location: "Remote France",
+        type: "CDI",
+        salary: "80-100k",
+        description: "Une scale-up SaaS recherche un SRE Lead pour piloter la fiabilité de sa plateforme en hypercroissance.",
+      },
+      {
+        title: "Platform Engineer",
+        location: "Lyon",
+        type: "CDI",
+        salary: "65-85k",
+        description: "Une ETI en transformation digitale cherche un Platform Engineer pour construire sa plateforme interne from scratch.",
+      },
+      {
+        title: "DevOps Consultant",
+        location: "Bordeaux",
+        type: "Freelance",
+        salary: "600-800€/jour",
+        description: "Mission de 6 mois pour accompagner la migration cloud d'une entreprise du CAC40.",
+      },
+    ],
+  },
+  candidates: {
+    title: "Vous êtes ingénieur DevOps, SRE ou Platform Engineer ?",
+    subtitle: "On ne vous contactera pas pour n'importe quoi.",
+    body: "Rejoindre le réseau Iterato, c'est être approché uniquement pour des postes qui correspondent vraiment — bonne stack, bon contexte, bonne étape de carrière. Par quelqu'un qui comprend ce que vous faites. Pas de spam. Pas de 'j'ai une super opportunité' générique. Juste un contact quand c'est pertinent.",
+    cta: "Rejoindre le réseau",
+  },
+  faq: {
+    tagline: "Questions fréquentes",
+    items: [
+      {
+        q: "Quels types de profils recrutez-vous ?",
+        a: "DevOps, SRE et Platform Engineers. Uniquement. Ce sont des profils pointus, difficiles à trouver via les canaux classiques. C'est précisément pour ça qu'on a construit un réseau dédié.",
+      },
+      {
+        q: "Quels sont vos délais ?",
+        a: "On vise une première sélection sous 2 semaines maximum. Pas 10 CVs. 3 profils vraiment pertinents.",
+      },
+      {
+        q: "Comment fixez-vous vos honoraires ?",
+        a: "On travaille au succès. Si vous ne signez pas un contrat avec un profil que nous vous présentons, nous ne facturons aucun honoraire.",
+      },
+      {
+        q: "Proposez-vous une garantie ?",
+        a: "Oui. Si le candidat part dans la période de 3 mois, on relance la recherche sans frais supplémentaires.",
+      },
+      {
+        q: "On a déjà un service RH interne.",
+        a: "On intervient en complément. Les profils DevOps et SRE sont parmi les plus compliqués à sourcer et à évaluer techniquement — on s'en occupe pour vous, y compris les profils qui ne cherchent pas activement.",
+      },
+      {
+        q: "Notre budget est serré.",
+        a: "Parlons-en dès le départ. On cherche toujours une formule qui fonctionne pour les deux parties.",
+      },
+      {
+        q: "On a mis une annonce sur les jobboards pendant 3 mois sans résultat.",
+        a: "Les meilleurs profils DevOps ne sont pas sur Indeed — ils n'ont pas besoin d'y être. On va les chercher là où ils sont vraiment : chasse directe, communautés techniques, réseau.",
+      },
+      {
+        q: "Et si on n'est pas satisfait ?",
+        a: "On travaille uniquement au succès. Pas de recrutement, pas d'honoraires. Zéro risque financier.",
+      },
+      {
+        q: "On veut déléguer entièrement ou rester impliqué — vous vous adaptez ?",
+        a: "Évidemment. Certains clients veulent recevoir une shortlist et c'est tout. D'autres veulent être dans la boucle à chaque étape. On s'adapte à vous.",
+      },
+    ],
+  },
   ctaFinal: {
-    title:
-      "Votre prochain ingénieur infrastructure est quelque part dans notre réseau.",
+    title: "Votre prochain ingénieur infrastructure est quelque part dans notre réseau.",
     subtitle:
       "Un call de 20 minutes pour voir si on peut vous aider. Pas de pitch. Juste une conversation franche sur votre besoin réel.",
     primary: "Déposer un besoin",
@@ -140,17 +222,6 @@ function accent(v: string): AccentColors {
       light: "text-amber-400/60",
       dot: "bg-amber-400",
       divider: "border-amber-400/10",
-    },
-    "3": {
-      text: "text-blue-400",
-      bg: "bg-blue-400/10",
-      bgHover: "hover:bg-blue-400/20",
-      border: "border-blue-400/30",
-      ring: "ring-blue-400/20",
-      btn: "bg-blue-500 hover:bg-blue-400 text-black font-semibold",
-      light: "text-blue-400/60",
-      dot: "bg-blue-400",
-      divider: "border-blue-400/10",
     },
   }
   return map[v] || map["2"]
@@ -264,16 +335,16 @@ function ProtoHeader({ variant }: { variant: string }) {
             Équipe
           </a>
           <a
-            href="#process"
+            href="#cta-mid"
             className="text-sm text-white/50 hover:text-white transition-colors hidden sm:inline"
           >
-            Process
+            Déposer un besoin
           </a>
           <a
-            href="#testimonials"
+            href="#candidats"
             className="text-sm text-white/50 hover:text-white transition-colors hidden sm:inline"
           >
-            Témoignages
+            Intégrer notre réseau
           </a>
           <Btn variant={variant}>Déposer un besoin</Btn>
         </div>
@@ -292,10 +363,8 @@ function ProtoHero({ variant }: { variant: string }) {
   const isAgency = variant === "2"
 
   const titleClass = isTerminal
-    ? "font-mono text-4xl md:text-5xl lg:text-6xl leading-tight"
-    : isAgency
-      ? "font-extrabold text-5xl md:text-7xl lg:text-8xl tracking-tight leading-[1.05]"
-      : "font-bold text-4xl md:text-5xl lg:text-6xl tracking-tight leading-tight"
+    ? "font-mono text-3xl md:text-4xl lg:text-5xl leading-tight"
+    : "font-extrabold text-4xl md:text-5xl lg:text-6xl tracking-tight leading-[1.05]"
 
   const wrapperClass = isAgency
     ? "flex flex-col items-center text-center gap-8 max-w-4xl mx-auto"
@@ -314,18 +383,22 @@ function ProtoHero({ variant }: { variant: string }) {
         </h1>
 
         <p
-          className={`text-white/50 max-w-2xl leading-relaxed ${isTerminal ? "font-mono text-base" : "text-lg"} ${isAgency ? "text-xl" : ""}`}
+          className={`text-white/50 max-w-2xl leading-relaxed ${isTerminal ? "font-mono text-base" : "text-lg"}`}
         >
           {DATA.hero.subtitle}
         </p>
 
         <div
-          className={`flex ${variant === "3" ? "flex-row" : "flex-col sm:flex-row"} gap-3 pt-4`}
+          className={`flex flex-col sm:flex-row gap-3 pt-4`}
         >
-          <Btn variant={variant}>{DATA.hero.ctaPrimary}</Btn>
-          <Btn variant={variant} secondary>
-            {DATA.hero.ctaSecondary}
-          </Btn>
+          <a href="#cta-mid">
+            <Btn variant={variant}>{DATA.hero.ctaPrimary}</Btn>
+          </a>
+          <a href="#candidats">
+            <Btn variant={variant} secondary>
+              {DATA.hero.ctaSecondary}
+            </Btn>
+          </a>
         </div>
       </div>
     </Section>
@@ -343,7 +416,6 @@ function ProtoTeam({ variant }: { variant: string }) {
 
   return (
     <Section id="team">
-      {/* Tagline */}
       <div className={isAgency ? "text-center" : ""}>
         <Tagline variant={variant}>L&apos;équipe</Tagline>
         <p
@@ -353,14 +425,11 @@ function ProtoTeam({ variant }: { variant: string }) {
         </p>
       </div>
 
-      {/* Members */}
       <div
         className={`grid gap-8 mb-12 ${
-          variant === "3"
-            ? "md:grid-cols-2"
-            : isAgency
-              ? "max-w-2xl mx-auto"
-              : ""
+          isAgency
+            ? "max-w-2xl mx-auto"
+            : ""
         }`}
       >
         {DATA.team.members.map((m, i) => {
@@ -373,26 +442,6 @@ function ProtoTeam({ variant }: { variant: string }) {
                 <p className="text-white/50 leading-relaxed max-w-lg mx-auto">
                   {m.bio}
                 </p>
-              </div>
-            )
-          }
-
-          if (variant === "3") {
-            return (
-              <div
-                key={i}
-                className={`p-8 rounded-2xl border ${c.border} ${c.bg} ${c.ring} ring-1`}
-              >
-                <div className="flex items-center gap-4 mb-4">
-                  <Avatar initial={m.initial} variant={variant} />
-                  <div>
-                    <h3 className="text-xl font-bold">{m.name}</h3>
-                    <p className={`${c.text} text-sm font-medium`}>
-                      {m.role}
-                    </p>
-                  </div>
-                </div>
-                <p className="text-white/50 leading-relaxed">{m.bio}</p>
               </div>
             )
           }
@@ -422,16 +471,6 @@ function ProtoTeam({ variant }: { variant: string }) {
           )
         })}
       </div>
-
-      {/* Conclusion */}
-      <p
-        className={`text-white/70 ${isAgency ? "text-center text-xl font-medium" : isTerminal ? "font-mono text-sm" : "text-base"} max-w-2xl ${isAgency ? "mx-auto" : ""} leading-relaxed`}
-      >
-        {isTerminal && (
-          <span className={c.text}># </span>
-        )}
-        {DATA.team.conclusion}
-      </p>
     </Section>
   )
 }
@@ -449,35 +488,15 @@ function ProtoProcess({ variant }: { variant: string }) {
   return (
     <Section id="process">
       <div className={isAgency ? "text-center" : ""}>
-        <Tagline variant={variant}>Comment on fonctionne</Tagline>
+        <Tagline variant={variant}>{DATA.process.tagline}</Tagline>
         <p
           className={`text-white/70 max-w-xl mb-16 ${isTerminal ? "font-mono" : ""} ${isAgency ? "text-xl mx-auto" : "text-lg"}`}
         >
-          {DATA.process.tagline}
+          Un process conçu pour aller vite sans sacrifier la qualité.
         </p>
       </div>
 
-      {/* Variant 3: Horizontal steps */}
-      {variant === "3" ? (
-        <div className="grid md:grid-cols-4 gap-6">
-          {DATA.process.steps.map((s, i) => (
-            <div
-              key={i}
-              className={`p-6 rounded-xl border ${c.border} ${c.bg} relative`}
-            >
-              <span
-                className={`text-3xl font-bold ${c.light} block mb-3`}
-              >
-                {s.number}
-              </span>
-              <h3 className="font-bold mb-2 text-sm">{s.title}</h3>
-              <p className="text-white/50 text-sm leading-relaxed">
-                {s.description}
-              </p>
-            </div>
-          ))}
-        </div>
-      ) : variant === "2" ? (
+      {variant === "2" ? (
         /* Variant 2: Accordion */
         <div className="max-w-2xl mx-auto space-y-3">
           {DATA.process.steps.map((s, i) => (
@@ -560,14 +579,12 @@ function ProtoCTAMid({ variant }: { variant: string }) {
   const isAgency = variant === "2"
 
   return (
-    <Section>
+    <Section id="cta-mid">
       <div
         className={`${
-          variant === "3"
-            ? `border ${c.border} ${c.bg} rounded-2xl p-10 md:p-16 max-w-3xl mx-auto text-center`
-            : isAgency
-              ? "text-center max-w-2xl mx-auto"
-              : `border-l-2 ${c.border} ${c.bg} rounded-r-xl p-8 md:p-12 max-w-3xl`
+          isAgency
+            ? "text-center max-w-2xl mx-auto"
+            : `border-l-2 ${c.border} ${c.bg} rounded-r-xl p-8 md:p-12 max-w-3xl`
         }`}
       >
         <h2
@@ -579,12 +596,12 @@ function ProtoCTAMid({ variant }: { variant: string }) {
           {DATA.ctaMid.title}
         </h2>
         <p
-          className={`text-white/50 mb-8 leading-relaxed ${isTerminal ? "font-mono text-sm" : "text-lg"} max-w-xl ${isAgency || variant === "3" ? "mx-auto" : ""}`}
+          className={`text-white/50 mb-8 leading-relaxed ${isTerminal ? "font-mono text-sm" : "text-lg"} max-w-xl ${isAgency ? "mx-auto" : ""}`}
         >
           {DATA.ctaMid.subtitle}
         </p>
         <div
-          className={`flex ${isAgency || variant === "3" ? "justify-center" : ""} flex-col sm:flex-row items-center gap-4`}
+          className={`flex ${isAgency ? "justify-center" : ""} flex-col sm:flex-row items-center gap-4`}
         >
           <Btn variant={variant}>{DATA.ctaMid.button}</Btn>
           <span className="text-white/30 text-sm">
@@ -616,35 +633,7 @@ function ProtoTestimonials({ variant }: { variant: string }) {
         </p>
       </div>
 
-      {variant === "3" ? (
-        /* Grid of 3 cards */
-        <div className="grid md:grid-cols-3 gap-6">
-          {DATA.testimonials.quotes.map((q, i) => (
-            <div
-              key={i}
-              className={`p-6 rounded-xl border ${c.border} ${c.bg} flex flex-col`}
-            >
-              <svg
-                className={`w-8 h-8 ${c.light} mb-4 opacity-50`}
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-              </svg>
-              <p className="text-white/70 text-sm leading-relaxed flex-1 mb-5">
-                {q.text}
-              </p>
-              <div
-                className={`pt-4 border-t ${c.divider}`}
-              >
-                <p className={`${c.text} text-sm font-medium`}>
-                  {q.author}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-      ) : variant === "2" ? (
+      {variant === "2" ? (
         /* Centered large quotes */
         <div className="max-w-2xl mx-auto space-y-12">
           {DATA.testimonials.quotes.map((q, i) => (
@@ -683,6 +672,205 @@ function ProtoTestimonials({ variant }: { variant: string }) {
 }
 
 // ============================================================
+// JOBS (new section)
+// ============================================================
+
+function ProtoJobs({ variant }: { variant: string }) {
+  const c = accent(variant)
+  const isTerminal = variant === "1"
+  const isAgency = variant === "2"
+  const [current, setCurrent] = useState(0)
+  const jobs = DATA.jobs.listings
+  const total = jobs.length
+
+  const next = () => setCurrent((p) => (p + 1) % total)
+  const prev = () => setCurrent((p) => (p - 1 + total) % total)
+
+  return (
+    <Section id="postes">
+      <div className={isAgency ? "text-center" : ""}>
+        <Tagline variant={variant}>{DATA.jobs.tagline}</Tagline>
+      </div>
+
+      <div className="relative">
+        {/* Navigation arrows */}
+        <button
+          onClick={prev}
+          className={`absolute -left-4 md:-left-12 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full border ${c.border} ${c.bg} flex items-center justify-center ${c.text} hover:scale-110 transition-transform z-10`}
+        >
+          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+        <button
+          onClick={next}
+          className={`absolute -right-4 md:-right-12 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full border ${c.border} ${c.bg} flex items-center justify-center ${c.text} hover:scale-110 transition-transform z-10`}
+        >
+          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+
+        {/* Job cards carousel */}
+        <div className="overflow-hidden">
+          <div
+            className="flex transition-transform duration-500 ease-out"
+            style={{ transform: `translateX(-${current * 100}%)` }}
+          >
+            {jobs.map((job, i) => (
+              <div key={i} className="w-full flex-shrink-0 px-2">
+                <div
+                  className={`rounded-xl border ${c.border} ${c.bg} p-6 md:p-8 max-w-lg mx-auto`}
+                >
+                  <h3 className={`font-bold text-xl mb-3 ${isTerminal ? "font-mono" : ""}`}>
+                    {isTerminal && <span className={c.light}>$ </span>}
+                    {job.title}
+                  </h3>
+                  <p className="text-white/50 text-sm leading-relaxed mb-5">
+                    {job.description}
+                  </p>
+                  <div className="flex flex-wrap gap-2 mb-5">
+                    <span className={`px-3 py-1 rounded-full text-xs font-medium ${c.bg} ${c.text} border ${c.border}`}>
+                      {job.location}
+                    </span>
+                    <span className={`px-3 py-1 rounded-full text-xs font-medium ${c.bg} ${c.text} border ${c.border}`}>
+                      {job.type}
+                    </span>
+                    <span className={`px-3 py-1 rounded-full text-xs font-medium ${c.bg} ${c.text} border ${c.border}`}>
+                      {job.salary}
+                    </span>
+                  </div>
+                  <button className={`px-5 py-2.5 rounded-lg ${c.btn} text-sm font-medium`}>
+                    Voir le poste
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Dots indicator */}
+        <div className="flex justify-center gap-2 mt-6">
+          {jobs.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrent(i)}
+              className={`w-2 h-2 rounded-full transition-all ${
+                i === current ? `${c.dot} w-6` : "bg-white/20"
+              }`}
+            />
+          ))}
+        </div>
+      </div>
+    </Section>
+  )
+}
+
+// ============================================================
+// CANDIDATES (new section)
+// ============================================================
+
+function ProtoCandidates({ variant }: { variant: string }) {
+  const c = accent(variant)
+  const isTerminal = variant === "1"
+  const isAgency = variant === "2"
+
+  return (
+    <Section id="candidats">
+      <div
+        className={`${
+          isAgency
+            ? "text-center max-w-3xl mx-auto"
+            : `border-l-2 ${c.border} ${c.bg} rounded-r-xl p-8 md:p-12 max-w-3xl`
+        }`}
+      >
+        <h2
+          className={`font-bold mb-3 ${isTerminal ? "font-mono text-2xl md:text-3xl" : isAgency ? "text-3xl md:text-4xl tracking-tight" : "text-2xl md:text-3xl tracking-tight"}`}
+        >
+          {isTerminal && (
+            <span className={c.text}>$ </span>
+          )}
+          {DATA.candidates.title}
+        </h2>
+        <p className={`${c.text} font-semibold text-lg mb-5`}>
+          {DATA.candidates.subtitle}
+        </p>
+        <p
+          className={`text-white/50 mb-8 leading-relaxed ${isTerminal ? "font-mono text-sm" : "text-lg"} max-w-xl ${isAgency ? "mx-auto" : ""}`}
+        >
+          {DATA.candidates.body}
+        </p>
+        <div className={`flex ${isAgency ? "justify-center" : ""}`}>
+          <Btn variant={variant}>{DATA.candidates.cta}</Btn>
+        </div>
+      </div>
+    </Section>
+  )
+}
+
+// ============================================================
+// FAQ (new section)
+// ============================================================
+
+function ProtoFAQ({ variant }: { variant: string }) {
+  const c = accent(variant)
+  const isTerminal = variant === "1"
+  const isAgency = variant === "2"
+  const [open, setOpen] = useState<number | null>(null)
+
+  return (
+    <Section id="faq">
+      <div className={isAgency ? "text-center" : ""}>
+        <Tagline variant={variant}>{DATA.faq.tagline}</Tagline>
+      </div>
+
+      <div className="max-w-2xl mx-auto space-y-3">
+        {DATA.faq.items.map((item, i) => (
+          <div
+            key={i}
+            className={`rounded-xl border ${c.border} overflow-hidden transition-colors`}
+          >
+            <button
+              onClick={() => setOpen(open === i ? null : i)}
+              className="w-full flex items-center gap-4 p-5 text-left hover:bg-white/[0.02] transition-colors"
+            >
+              {isTerminal && (
+                <span className={`${c.text} font-mono text-sm shrink-0`}>
+                  &gt;
+                </span>
+              )}
+              <span className={`font-semibold flex-1 ${isTerminal ? "font-mono text-sm" : ""}`}>
+                {item.q}
+              </span>
+              <svg
+                className={`w-5 h-5 ${c.text} transition-transform ${open === i ? "rotate-180" : ""}`}
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+            {open === i && (
+              <div className={`px-5 pb-5 ${isTerminal ? "pl-10" : "pl-[68px]"}`}>
+                <p className={`text-white/50 leading-relaxed text-sm ${isTerminal ? "font-mono" : ""}`}>
+                  {item.a}
+                </p>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </Section>
+  )
+}
+
+// ============================================================
 // CTA FINAL
 // ============================================================
 
@@ -695,11 +883,9 @@ function ProtoCTAFinal({ variant }: { variant: string }) {
     <Section>
       <div
         className={`${
-          variant === "3"
-            ? `border ${c.border} ${c.bg} rounded-2xl p-10 md:p-16 max-w-3xl mx-auto text-center`
-            : isAgency
-              ? "text-center max-w-3xl mx-auto"
-              : ""
+          isAgency
+            ? "text-center max-w-3xl mx-auto"
+            : ""
         }`}
       >
         <h2
@@ -714,12 +900,12 @@ function ProtoCTAFinal({ variant }: { variant: string }) {
           )}
         </h2>
         <p
-          className={`text-white/50 mb-8 leading-relaxed ${isTerminal ? "font-mono text-sm" : "text-lg"} max-w-xl ${isAgency || variant === "3" ? "mx-auto" : ""}`}
+          className={`text-white/50 mb-8 leading-relaxed ${isTerminal ? "font-mono text-sm" : "text-lg"} max-w-xl ${isAgency ? "mx-auto" : ""}`}
         >
           {DATA.ctaFinal.subtitle}
         </p>
         <div
-          className={`flex ${isAgency || variant === "3" ? "justify-center" : ""} flex-col sm:flex-row items-center gap-3`}
+          className={`flex ${isAgency ? "justify-center" : ""} flex-col sm:flex-row items-center gap-3`}
         >
           <Btn variant={variant}>{DATA.ctaFinal.primary}</Btn>
           <Btn variant={variant} secondary>
@@ -758,7 +944,7 @@ function ProtoFooter({ variant }: { variant: string }) {
             Mentions légales
           </a>
           <a href="#" className="hover:text-white transition-colors">
-            Confidentalité
+            Confidentialité
           </a>
           <a href="#" className="hover:text-white transition-colors">
             Contact
@@ -777,7 +963,6 @@ function VariantSwitcher({ current }: { current: string }) {
   const variants = [
     { key: "1", label: "Terminal", emoji: ">" },
     { key: "2", label: "Agency", emoji: "◆" },
-    { key: "3", label: "Corporate", emoji: "◈" },
   ]
 
   return (
@@ -822,6 +1007,9 @@ export default function ProtoContent() {
           <ProtoProcess variant={variant} />
           <ProtoCTAMid variant={variant} />
           <ProtoTestimonials variant={variant} />
+          <ProtoJobs variant={variant} />
+          <ProtoCandidates variant={variant} />
+          <ProtoFAQ variant={variant} />
           <ProtoCTAFinal variant={variant} />
         </main>
         <ProtoFooter variant={variant} />
