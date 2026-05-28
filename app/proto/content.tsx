@@ -9,11 +9,13 @@ import { useState } from 'react'
 
 const DATA = {
   hero: {
+    label:
+      "Cabinet de recrutement spécialisé DevOps, SRE et Platform Engineer en France",
     headlinePart1:
       "Les ingénieurs DevOps, SRE et Platform sont les plus difficiles à recruter.",
     headlinePart2: "On ne fait que ça.",
     subtitle:
-      "Iterato connecte les équipes infras avec les meilleurs ingénieurs DevOps, SRE et Platform Engineer. Une seule spécialité, un vrai réseau, un DevOps actif qui teste chaque profil.",
+      "Iterato connecte les équipes infras avec les meilleurs ingénieurs DevOps, SRE et Platform Engineer. Une seule spécialité, un réseau, un DevOps actif qui teste chaque profil. Premiers profils en moins de 2 semaines.",
     ctaPrimary: "Déposer un besoin",
     ctaSecondary: "Rejoindre le réseau",
   },
@@ -24,7 +26,7 @@ const DATA = {
         initial: "C",
         name: "Clara",
         role: "La recruteuse",
-        bio: "Une conviction : le bon profil n'est pas le même pour tout le monde. La bonne personne, c'est celle qui correspond à cette équipe, à ce moment précis, à cette étape de vie de la boîte. Elle ne vous envoie pas des profils pour en envoyer — elle va chercher les meilleurs, qu'ils soient en recherche ou pas. Elle a choisi la niche DevOps, SRE et Platform Engineer. Elle sait où ils sont, ce qui les motive, ce qui les fait bouger.",
+        bio: "Après quelques années dans le recrutement, Clara a une conviction : le bon profil n'est pas le même pour tout le monde. Il dépend du contexte, de l'équipe, de l'étape de vie de votre projet. Elle ne vous envoie pas des profils pour en envoyer — elle va chercher les meilleurs pour votre contexte, en recherche ou pas. Ce qui la passionne : le sourcing actif. Trouver ceux que personne d'autre ne trouve. Elle a choisi de se concentrer sur une seule niche — DevOps, SRE et Platform Engineer — et elle y met toute son énergie.",
       },
       {
         initial: "H",
@@ -70,14 +72,14 @@ const DATA = {
     ],
   },
   ctaMid: {
-    title: "Dites-nous ce dont vous avez besoin.",
+    title: "Déposez votre besoin de recrutement.",
     subtitle:
-      "On vous revient sous 48h avec une analyse honnête : est-ce qu'on peut vous aider, en combien de temps, et pourquoi. Sans engagement, sans jargon commercial.",
-    button: "Déposer votre besoin",
-    mention: "Réponse sous 48h · Confidentiel",
+      "Sous 48h, on vous dit si on peut vous aider, comment, et en combien de temps. Pas de pitch, pas de baratin.",
+    button: "Déposer un besoin →",
+    mention: "Réponse sous 48h · Sans engagement",
   },
   testimonials: {
-    tagline: "Premiers profils présentés en moins de 2 semaines.",
+    tagline: "",
     quotes: [
       {
         text: "Franchement on s'attendait pas à aller aussi vite. On cherchait depuis 4 mois. Iterato nous a présenté le bon profil en 10 jours. Pas 10 CVs, le bon.",
@@ -129,8 +131,8 @@ const DATA = {
   candidates: {
     title: "Vous êtes ingénieur DevOps, SRE ou Platform Engineer ?",
     subtitle: "On ne vous contactera pas pour n'importe quoi.",
-    body: "Rejoindre le réseau Iterato, c'est être approché uniquement pour des postes qui correspondent vraiment — bonne stack, bon contexte, bonne étape de carrière. Par quelqu'un qui comprend ce que vous faites. Pas de spam. Pas de 'j'ai une super opportunité' générique. Juste un contact quand c'est pertinent.",
-    cta: "Rejoindre le réseau",
+    body: "Chez Iterato, vous êtes approché uniquement quand c'est pertinent — bonne stack, bon contexte, bonne étape de carrière. Par quelqu'un qui comprend ce que vous faites. Pas de perte de temps.",
+    cta: "Rejoindre notre réseau",
   },
   faq: {
     tagline: "Questions fréquentes",
@@ -301,11 +303,11 @@ function Tagline({ children, variant }: {
 }) {
   const c = accent(variant)
   return (
-    <p
-      className={`${c.text} text-sm font-semibold tracking-widest uppercase mb-3`}
+    <h2
+      className={`${c.text} text-2xl md:text-3xl font-bold tracking-tight mb-4`}
     >
       {children}
-    </p>
+    </h2>
   )
 }
 
@@ -373,14 +375,20 @@ function ProtoHero({ variant }: { variant: string }) {
   return (
     <Section>
       <div className={wrapperClass}>
-        <h1 className={titleClass}>
+        <h1
+          className={`text-xs font-medium tracking-wide uppercase ${isTerminal ? "font-mono" : ""} text-white/30 mb-4`}
+        >
+          {DATA.hero.label}
+        </h1>
+
+        <h2 className={titleClass}>
           {isTerminal && (
             <span className={`${c.text} mr-2`}>&gt;</span>
           )}
           {DATA.hero.headlinePart1}
           <br />
           <span className={c.text}>{DATA.hero.headlinePart2}</span>
-        </h1>
+        </h2>
 
         <p
           className={`text-white/50 max-w-2xl leading-relaxed ${isTerminal ? "font-mono text-base" : "text-lg"}`}
@@ -509,6 +517,7 @@ function ProtoProcess({ variant }: { variant: string }) {
                   setOpen(open === i ? null : i)
                 }
                 className="w-full flex items-center gap-4 p-5 text-left hover:bg-white/[0.02] transition-colors"
+                aria-expanded={open === i}
               >
                 <span
                   className={`text-2xl font-bold ${c.light} w-10 shrink-0`}
@@ -530,13 +539,15 @@ function ProtoProcess({ variant }: { variant: string }) {
                   />
                 </svg>
               </button>
-              {open === i && (
-                <div className="px-5 pb-5 pl-[68px]">
-                  <p className="text-white/50 leading-relaxed text-sm">
-                    {s.description}
-                  </p>
-                </div>
-              )}
+              <div
+                className={`px-5 pb-5 pl-[68px] ${
+                  open === i ? "" : "hidden"
+                }`}
+              >
+                <p className="text-white/50 leading-relaxed text-sm">
+                  {s.description}
+                </p>
+              </div>
             </div>
           ))}
         </div>
@@ -626,11 +637,13 @@ function ProtoTestimonials({ variant }: { variant: string }) {
     <Section id="testimonials">
       <div className={isAgency ? "text-center" : ""}>
         <Tagline variant={variant}>Témoignages</Tagline>
-        <p
-          className={`text-white/70 mb-16 ${isTerminal ? "font-mono" : ""} ${isAgency ? "text-xl mx-auto max-w-xl" : "text-lg"}`}
-        >
-          {DATA.testimonials.tagline}
-        </p>
+        {DATA.testimonials.tagline && (
+          <p
+            className={`text-white/70 mb-16 ${isTerminal ? "font-mono" : ""} ${isAgency ? "text-xl mx-auto max-w-xl" : "text-lg"}`}
+          >
+            {DATA.testimonials.tagline}
+          </p>
+        )}
       </div>
 
       {variant === "2" ? (
@@ -785,19 +798,17 @@ function ProtoCandidates({ variant }: { variant: string }) {
         }`}
       >
         <h2
-          className={`font-bold mb-3 ${isTerminal ? "font-mono text-2xl md:text-3xl" : isAgency ? "text-3xl md:text-4xl tracking-tight" : "text-2xl md:text-3xl tracking-tight"}`}
+          className={`font-bold mb-5 ${isTerminal ? "font-mono text-2xl md:text-3xl" : isAgency ? "text-3xl md:text-4xl tracking-tight" : "text-2xl md:text-3xl tracking-tight"}`}
         >
           {isTerminal && (
             <span className={c.text}>$ </span>
           )}
           {DATA.candidates.title}
         </h2>
-        <p className={`${c.text} font-semibold text-lg mb-5`}>
-          {DATA.candidates.subtitle}
-        </p>
         <p
           className={`text-white/50 mb-8 leading-relaxed ${isTerminal ? "font-mono text-sm" : "text-lg"} max-w-xl ${isAgency ? "mx-auto" : ""}`}
         >
+          <span className={`${c.text} font-semibold`}>{DATA.candidates.subtitle}</span>{" "}
           {DATA.candidates.body}
         </p>
         <div className={`flex ${isAgency ? "justify-center" : ""}`}>
@@ -833,6 +844,7 @@ function ProtoFAQ({ variant }: { variant: string }) {
             <button
               onClick={() => setOpen(open === i ? null : i)}
               className="w-full flex items-center gap-4 p-5 text-left hover:bg-white/[0.02] transition-colors"
+              aria-expanded={open === i}
             >
               {isTerminal && (
                 <span className={`${c.text} font-mono text-sm shrink-0`}>
@@ -856,13 +868,15 @@ function ProtoFAQ({ variant }: { variant: string }) {
                 />
               </svg>
             </button>
-            {open === i && (
-              <div className={`px-5 pb-5 ${isTerminal ? "pl-10" : "pl-[68px]"}`}>
-                <p className={`text-white/50 leading-relaxed text-sm ${isTerminal ? "font-mono" : ""}`}>
-                  {item.a}
-                </p>
-              </div>
-            )}
+            <div
+              className={`px-5 pb-5 ${isTerminal ? "pl-10" : "pl-[68px]"} ${
+                open === i ? "" : "hidden"
+              }`}
+            >
+              <p className={`text-white/50 leading-relaxed text-sm ${isTerminal ? "font-mono" : ""}`}>
+                {item.a}
+              </p>
+            </div>
           </div>
         ))}
       </div>
