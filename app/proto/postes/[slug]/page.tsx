@@ -11,7 +11,7 @@ function AccentColors() {
     bgHover: 'hover:bg-[#CC785C]/20',
     border: 'border-[#CC785C]/30',
     ring: 'ring-[#CC785C]/20',
-    btn: 'bg-[#CC785C] hover:bg-[#B86A50] text-white font-semibold',
+    btn: 'bg-[#CC785C] hover:bg-[#B86A50] text-black font-semibold',
     light: 'text-[#CC785C]/60',
     dot: 'bg-[#CC785C]',
     divider: 'border-[#CC785C]/10',
