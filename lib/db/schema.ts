@@ -68,6 +68,17 @@ export const invitations = pgTable('invitations', {
   status: varchar('status', { length: 20 }).notNull().default('pending'),
 });
 
+export const contactRequests = pgTable('contact_requests', {
+  id: serial('id').primaryKey(),
+  firstName: varchar('first_name', { length: 100 }).notNull(),
+  email: varchar('email', { length: 255 }).notNull(),
+  profileType: varchar('profile_type', { length: 50 }),
+  context: text('context'),
+  experienceLevel: varchar('experience_level', { length: 20 }),
+  formType: varchar('form_type', { length: 30 }).notNull(),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
+});
+
 export const teamsRelations = relations(teams, ({ many }) => ({
   teamMembers: many(teamMembers),
   activityLogs: many(activityLogs),
@@ -120,6 +131,8 @@ export type TeamMember = typeof teamMembers.$inferSelect;
 export type NewTeamMember = typeof teamMembers.$inferInsert;
 export type ActivityLog = typeof activityLogs.$inferSelect;
 export type NewActivityLog = typeof activityLogs.$inferInsert;
+export type ContactRequest = typeof contactRequests.$inferSelect;
+export type NewContactRequest = typeof contactRequests.$inferInsert;
 export type Invitation = typeof invitations.$inferSelect;
 export type NewInvitation = typeof invitations.$inferInsert;
 export type TeamDataWithMembers = Team & {

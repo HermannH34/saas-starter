@@ -1,6 +1,5 @@
 'use client'
 
-import { useSearchParams } from 'next/navigation'
 import { useState } from 'react'
 
 // ============================================================
@@ -26,7 +25,7 @@ const DATA = {
         initial: "C",
         name: "Clara",
         role: "La recruteuse",
-        bio: "Après quelques années dans le recrutement, Clara a une conviction : le bon profil n'est pas le même pour tout le monde. Il dépend du contexte, de l'équipe, de l'étape de vie de votre projet. Elle ne vous envoie pas des profils pour en envoyer — elle va chercher les meilleurs pour votre contexte, en recherche ou pas. Ce qui la passionne : le sourcing actif. Trouver ceux que personne d'autre ne trouve. Elle a choisi de se concentrer sur une seule niche — DevOps, SRE et Platform Engineer — et elle y met toute son énergie.",
+        bio: "Chasseuse de têtes, Clara s'est spécialisée dans une seule niche : DevOps, SRE et Platform Engineer. Elle sait que recruter un bon ingénieur infra, ça ne s'improvise pas. Ça demande de comprendre les stacks, les contextes, les étapes de carrière. Ce qui la motive avant tout : le sourcing. Aller chercher les profils que personne d'autre ne trouve, ceux qui ne sont pas sur le marché. Elle ne vous envoie pas des profils pour en envoyer. Elle va chercher les bons, qu'ils soient en recherche ou pas.",
       },
       {
         initial: "H",
@@ -95,36 +94,24 @@ const DATA = {
       },
     ],
   },
-  jobs: {
+   jobs: {
     tagline: "Postes en cours",
     listings: [
       {
-        title: "Senior DevOps Engineer",
+        slug: "devops-cloud-engineer",
+        title: "DevOps Cloud Engineer",
         location: "Paris",
         type: "CDI",
-        salary: "70-90k",
-        description: "Notre client, une fintech en pleine croissance, cherche un Senior DevOps pour renforcer son équipe infrastructure.",
+        salary: "Remote-friendly",
+        description: "Iterato recrute pour un grand groupe à Paris en pleine refonte de sa plateforme technique. L'enjeu : moderniser une infrastructure critique, migrer vers le cloud et industrialiser les pratiques de delivery.",
       },
       {
-        title: "SRE Lead",
-        location: "Remote France",
+        slug: "senior-reliability-engineer",
+        title: "Senior Reliability Engineer",
+        location: "Paris",
         type: "CDI",
-        salary: "80-100k",
-        description: "Une scale-up SaaS recherche un SRE Lead pour piloter la fiabilité de sa plateforme en hypercroissance.",
-      },
-      {
-        title: "Platform Engineer",
-        location: "Lyon",
-        type: "CDI",
-        salary: "65-85k",
-        description: "Une ETI en transformation digitale cherche un Platform Engineer pour construire sa plateforme interne from scratch.",
-      },
-      {
-        title: "DevOps Consultant",
-        location: "Bordeaux",
-        type: "Freelance",
-        salary: "600-800€/jour",
-        description: "Mission de 6 mois pour accompagner la migration cloud d'une entreprise du CAC40.",
+        salary: "Remote-friendly",
+        description: "Iterato recrute pour un client à Paris — une start-up en pleine phase de scale. L'équipe Platform Engineering cherche un SRE senior pour renforcer le pôle Scalability.",
       },
     ],
   },
@@ -154,8 +141,12 @@ const DATA = {
         a: "Oui. Si le candidat part dans la période de 3 mois, on relance la recherche sans frais supplémentaires.",
       },
       {
+        q: "Vous confirmez que vous ne facturez que si on recrute votre candidat ?",
+        a: "On ne vous facture que si vous recrutez un de nos candidats. Pas de recrutement, pas de frais.",
+      },
+      {
         q: "On a déjà un service RH interne.",
-        a: "On intervient en complément. Les profils DevOps et SRE sont parmi les plus compliqués à sourcer et à évaluer techniquement — on s'en occupe pour vous, y compris les profils qui ne cherchent pas activement.",
+        a: "On travaille en parallèle de votre RH, pas à la place. Deux canaux valent mieux qu'un, surtout sur des profils aussi pénuriques que les DevOps et SRE.",
       },
       {
         q: "Notre budget est serré.",
@@ -203,27 +194,16 @@ interface AccentColors {
 
 function accent(v: string): AccentColors {
   const map: Record<string, AccentColors> = {
-    "1": {
-      text: "text-green-400",
-      bg: "bg-green-400/10",
-      bgHover: "hover:bg-green-400/20",
-      border: "border-green-400/30",
-      ring: "ring-green-400/20",
-      btn: "bg-green-500 hover:bg-green-400 text-black font-semibold",
-      light: "text-green-400/60",
-      dot: "bg-green-400",
-      divider: "border-green-400/10",
-    },
     "2": {
-      text: "text-amber-400",
-      bg: "bg-amber-400/10",
-      bgHover: "hover:bg-amber-400/20",
-      border: "border-amber-400/30",
-      ring: "ring-amber-400/20",
-      btn: "bg-amber-500 hover:bg-amber-400 text-black font-semibold",
-      light: "text-amber-400/60",
-      dot: "bg-amber-400",
-      divider: "border-amber-400/10",
+      text: "text-[#CC785C]",
+      bg: "bg-[#CC785C]/10",
+      bgHover: "hover:bg-[#CC785C]/20",
+      border: "border-[#CC785C]/30",
+      ring: "ring-[#CC785C]/20",
+      btn: "bg-[#CC785C] hover:bg-[#B86A50] text-white font-semibold",
+      light: "text-[#CC785C]/60",
+      dot: "bg-[#CC785C]",
+      divider: "border-[#CC785C]/10",
     },
   }
   return map[v] || map["2"]
@@ -233,25 +213,27 @@ function accent(v: string): AccentColors {
 // SHARED: BUTTON
 // ============================================================
 
-function Btn({ variant, children, secondary }: {
+function Btn({ variant, children, secondary, onClick, href }: {
   variant: string
   children: React.ReactNode
   secondary?: boolean
+  onClick?: () => void
+  href?: string
 }) {
   const c = accent(variant)
-  if (secondary) {
+  const cls = secondary
+    ? `px-6 py-3 rounded-lg border ${c.border} ${c.text} font-medium ${c.bgHover} transition-colors text-sm`
+    : `px-6 py-3 rounded-lg ${c.btn} transition-all text-sm`
+
+  if (href) {
     return (
-      <button
-        className={`px-6 py-3 rounded-lg border ${c.border} ${c.text} font-medium ${c.bgHover} transition-colors text-sm`}
-      >
+      <a href={href} className={`inline-block ${cls}`}>
         {children}
-      </button>
+      </a>
     )
   }
   return (
-    <button
-      className={`px-6 py-3 rounded-lg ${c.btn} transition-all text-sm`}
-    >
+    <button onClick={onClick} className={cls}>
       {children}
     </button>
   )
@@ -312,10 +294,229 @@ function Tagline({ children, variant }: {
 }
 
 // ============================================================
+// FORM MODAL (shared wrapper)
+// ============================================================
+
+function FormModal({ open, onClose, children }: {
+  open: boolean
+  onClose: () => void
+  children: React.ReactNode
+}) {
+  if (!open) return null
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-6">
+      <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" onClick={onClose} />
+      <div className="relative bg-zinc-900 border border-white/10 rounded-2xl p-8 max-w-lg w-full max-h-[90vh] overflow-y-auto animate-in fade-in zoom-in-95 duration-200">
+        <button onClick={onClose} className="absolute top-4 right-4 text-white/40 hover:text-white transition-colors">
+          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+        {children}
+      </div>
+    </div>
+  )
+}
+
+// ============================================================
+// FORM: DÉPOSER UN BESOIN
+// ============================================================
+
+function FormDeposerBesoin({ variant, onClose }: { variant: string; onClose: () => void }) {
+  const c = accent(variant)
+  const [step, setStep] = useState<'form' | 'success'>('form')
+  const [prenom, setPrenom] = useState('')
+  const [email, setEmail] = useState('')
+  const [profil, setProfil] = useState('')
+  const [contexte, setContexte] = useState('')
+  const [niveau, setNiveau] = useState('')
+
+  if (step === 'success') {
+    return (
+      <div className="text-center py-8">
+        <div className={`w-16 h-16 rounded-full ${c.bg} ${c.border} border-2 flex items-center justify-center mx-auto mb-6`}>
+          <svg className={`w-8 h-8 ${c.text}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+          </svg>
+        </div>
+        <h3 className="text-xl font-bold mb-2">Bien reçu</h3>
+        <p className="text-white/50">Un membre d&apos;Iterato vous contacte sous 24h.</p>
+      </div>
+    )
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    try {
+      await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ firstName: prenom, email, profileType: profil, context: contexte, experienceLevel: niveau, formType: 'deposer_besoin' }),
+      })
+    } catch (_) { /* fallback: show success anyway */ }
+    setStep('success')
+  }
+
+  const selectCls = (selected: boolean) =>
+    selected
+      ? `${c.border} ${c.bg} ${c.text}`
+      : 'border-white/10 bg-white/5 text-white/80 hover:border-white/20'
+
+  return (
+    <>
+      <h3 className="text-xl font-bold mb-6 text-white">Déposer un besoin</h3>
+      <form onSubmit={handleSubmit} className="space-y-5">
+        <div>
+          <label className="block text-sm font-medium text-white mb-1.5">Prénom</label>
+          <input type="text" placeholder="Cecile" value={prenom} onChange={(e) => setPrenom(e.target.value)} className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder:text-white/20 focus:outline-none focus:border-white/30 transition-colors" required />
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-white mb-1.5">Email pro</label>
+          <input type="email" placeholder="cecile@entreprise.com" value={email} onChange={(e) => setEmail(e.target.value)} className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder:text-white/20 focus:outline-none focus:border-white/30 transition-colors" required />
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-white mb-1.5">Quel profil recherchez-vous ?</label>
+          <div className="space-y-2">
+            {[
+              'DevOps Engineer',
+              'SRE — Site Reliability Engineer',
+              'Platform Engineer',
+            ].map((p) => (
+              <button key={p} type="button" onClick={() => setProfil(p)} className={`w-full px-4 py-3 rounded-lg text-left text-sm border transition-colors ${selectCls(profil === p)}`}>
+                {p}
+              </button>
+            ))}
+          </div>
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-white mb-1.5">Votre contexte</label>
+          <div className="space-y-2">
+            {[
+              "Startup / Scale-up (équipe tech en croissance, besoin d'agilité)",
+              'ETI / Grand groupe (environnement structuré, process établis)',
+              'Agence / ESN (missions clients, profils polyvalents)',
+            ].map((ctx) => (
+              <button key={ctx} type="button" onClick={() => setContexte(ctx)} className={`w-full px-4 py-3 rounded-lg text-left text-xs border transition-colors ${selectCls(contexte === ctx)}`}>
+                {ctx}
+              </button>
+            ))}
+          </div>
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-white mb-1.5">Niveau d&apos;expérience</label>
+          <div className="flex gap-2">
+            {['Junior', 'Intermédiaire', 'Senior'].map((n) => (
+              <button key={n} type="button" onClick={() => setNiveau(n)} className={`flex-1 px-4 py-3 rounded-lg text-center border transition-colors ${selectCls(niveau === n)}`}>
+                {n}
+              </button>
+            ))}
+          </div>
+        </div>
+        <div className="flex flex-col gap-3 pt-2">
+          <button type="submit" className={`w-full py-3 rounded-lg ${c.btn} transition-all`}>
+            Je veux ce profil
+          </button>
+          <button type="submit" className={`w-full py-3 rounded-lg border ${c.border} ${c.text} font-medium ${c.bgHover} transition-colors`}>
+            Être rappelé par notre recruteuse
+          </button>
+        </div>
+      </form>
+    </>
+  )
+}
+
+// ============================================================
+// FORM: REJOINDRE LA COMMUNAUTÉ
+// ============================================================
+
+function FormRejoindreCommunaute({ variant, onClose }: { variant: string; onClose: () => void }) {
+  const c = accent(variant)
+  const [step, setStep] = useState<'form' | 'success'>('form')
+  const [prenom, setPrenom] = useState('')
+  const [email, setEmail] = useState('')
+  const [profil, setProfil] = useState('')
+  const [niveau, setNiveau] = useState('')
+
+  if (step === 'success') {
+    return (
+      <div className="text-center py-8">
+        <div className={`w-16 h-16 rounded-full ${c.bg} ${c.border} border-2 flex items-center justify-center mx-auto mb-6`}>
+          <svg className={`w-8 h-8 ${c.text}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+          </svg>
+        </div>
+        <h3 className="text-xl font-bold mb-2">Bien reçu</h3>
+        <p className="text-white/50">Un membre d&apos;Iterato vous contacte sous 24h.</p>
+      </div>
+    )
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    try {
+      await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ firstName: prenom, email, profileType: profil, experienceLevel: niveau, formType: 'rejoindre_communaute' }),
+      })
+    } catch (_) { /* fallback: show success anyway */ }
+    setStep('success')
+  }
+
+  const selectCls = (selected: boolean) =>
+    selected
+      ? `${c.border} ${c.bg} ${c.text}`
+      : 'border-white/10 bg-white/5 text-white/80 hover:border-white/20'
+
+  return (
+    <>
+      <h3 className="text-xl font-bold mb-6 text-white">Rejoindre la communauté</h3>
+      <form onSubmit={handleSubmit} className="space-y-5">
+        <div>
+          <label className="block text-sm font-medium text-white mb-1.5">Prénom</label>
+          <input type="text" placeholder="Votre prénom" value={prenom} onChange={(e) => setPrenom(e.target.value)} className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder:text-white/20 focus:outline-none focus:border-white/30 transition-colors" required />
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-white mb-1.5">Email</label>
+          <input type="email" placeholder="vous@email.com" value={email} onChange={(e) => setEmail(e.target.value)} className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder:text-white/20 focus:outline-none focus:border-white/30 transition-colors" required />
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-white mb-1.5">Votre profil</label>
+          <div className="space-y-2">
+            {[
+              'DevOps Engineer',
+              'SRE — Site Reliability Engineer',
+              'Platform Engineer',
+            ].map((p) => (
+              <button key={p} type="button" onClick={() => setProfil(p)} className={`w-full px-4 py-3 rounded-lg text-left text-sm border transition-colors ${selectCls(profil === p)}`}>
+                {p}
+              </button>
+            ))}
+          </div>
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-white mb-1.5">Niveau d&apos;expérience</label>
+          <div className="flex gap-2">
+            {['Junior', 'Intermédiaire', 'Senior'].map((n) => (
+              <button key={n} type="button" onClick={() => setNiveau(n)} className={`flex-1 px-4 py-3 rounded-lg text-center border transition-colors ${selectCls(niveau === n)}`}>
+                {n}
+              </button>
+            ))}
+          </div>
+        </div>
+        <button type="submit" className={`w-full py-3 rounded-lg ${c.btn} font-semibold transition-all mt-2`}>
+          Rejoindre
+        </button>
+      </form>
+    </>
+  )
+}
+
+// ============================================================
 // HEADER
 // ============================================================
 
-function ProtoHeader({ variant }: { variant: string }) {
+function ProtoHeader({ variant, onDeposerBesoin }: { variant: string; onDeposerBesoin?: () => void }) {
   const c = accent(variant)
   const isTerminal = variant === "1"
   return (
@@ -348,7 +549,7 @@ function ProtoHeader({ variant }: { variant: string }) {
           >
             Intégrer notre réseau
           </a>
-          <Btn variant={variant}>Déposer un besoin</Btn>
+          <Btn variant={variant} onClick={onDeposerBesoin}>Déposer un besoin</Btn>
         </div>
       </nav>
     </header>
@@ -359,7 +560,7 @@ function ProtoHeader({ variant }: { variant: string }) {
 // HERO
 // ============================================================
 
-function ProtoHero({ variant }: { variant: string }) {
+function ProtoHero({ variant, onDeposerBesoin, onRejoindreCommunaute }: { variant: string; onDeposerBesoin?: () => void; onRejoindreCommunaute?: () => void }) {
   const c = accent(variant)
   const isTerminal = variant === "1"
   const isAgency = variant === "2"
@@ -399,14 +600,10 @@ function ProtoHero({ variant }: { variant: string }) {
         <div
           className={`flex flex-col sm:flex-row gap-3 pt-4`}
         >
-          <a href="#cta-mid">
-            <Btn variant={variant}>{DATA.hero.ctaPrimary}</Btn>
-          </a>
-          <a href="#candidats">
-            <Btn variant={variant} secondary>
-              {DATA.hero.ctaSecondary}
-            </Btn>
-          </a>
+          <Btn variant={variant} onClick={onDeposerBesoin}>{DATA.hero.ctaPrimary}</Btn>
+          <Btn variant={variant} secondary onClick={onRejoindreCommunaute}>
+            {DATA.hero.ctaSecondary}
+          </Btn>
         </div>
       </div>
     </Section>
@@ -584,7 +781,7 @@ function ProtoProcess({ variant }: { variant: string }) {
 // CTA MID
 // ============================================================
 
-function ProtoCTAMid({ variant }: { variant: string }) {
+function ProtoCTAMid({ variant, onDeposerBesoin }: { variant: string; onDeposerBesoin?: () => void }) {
   const c = accent(variant)
   const isTerminal = variant === "1"
   const isAgency = variant === "2"
@@ -614,7 +811,7 @@ function ProtoCTAMid({ variant }: { variant: string }) {
         <div
           className={`flex ${isAgency ? "justify-center" : ""} flex-col sm:flex-row items-center gap-4`}
         >
-          <Btn variant={variant}>{DATA.ctaMid.button}</Btn>
+          <Btn variant={variant} onClick={onDeposerBesoin}>{DATA.ctaMid.button}</Btn>
           <span className="text-white/30 text-sm">
             {DATA.ctaMid.mention}
           </span>
@@ -753,9 +950,9 @@ function ProtoJobs({ variant }: { variant: string }) {
                       {job.salary}
                     </span>
                   </div>
-                  <button className={`px-5 py-2.5 rounded-lg ${c.btn} text-sm font-medium`}>
+                  <a href={`/proto/postes/${job.slug}`} className={`inline-block px-5 py-2.5 rounded-lg ${c.btn} text-sm font-medium`}>
                     Voir le poste
-                  </button>
+                  </a>
                 </div>
               </div>
             ))}
@@ -783,7 +980,7 @@ function ProtoJobs({ variant }: { variant: string }) {
 // CANDIDATES (new section)
 // ============================================================
 
-function ProtoCandidates({ variant }: { variant: string }) {
+function ProtoCandidates({ variant, onRejoindreCommunaute }: { variant: string; onRejoindreCommunaute?: () => void }) {
   const c = accent(variant)
   const isTerminal = variant === "1"
   const isAgency = variant === "2"
@@ -812,7 +1009,7 @@ function ProtoCandidates({ variant }: { variant: string }) {
           {DATA.candidates.body}
         </p>
         <div className={`flex ${isAgency ? "justify-center" : ""}`}>
-          <Btn variant={variant}>{DATA.candidates.cta}</Btn>
+          <Btn variant={variant} onClick={onRejoindreCommunaute}>{DATA.candidates.cta}</Btn>
         </div>
       </div>
     </Section>
@@ -888,7 +1085,7 @@ function ProtoFAQ({ variant }: { variant: string }) {
 // CTA FINAL
 // ============================================================
 
-function ProtoCTAFinal({ variant }: { variant: string }) {
+function ProtoCTAFinal({ variant, onDeposerBesoin }: { variant: string; onDeposerBesoin?: () => void }) {
   const c = accent(variant)
   const isTerminal = variant === "1"
   const isAgency = variant === "2"
@@ -921,7 +1118,7 @@ function ProtoCTAFinal({ variant }: { variant: string }) {
         <div
           className={`flex ${isAgency ? "justify-center" : ""} flex-col sm:flex-row items-center gap-3`}
         >
-          <Btn variant={variant}>{DATA.ctaFinal.primary}</Btn>
+          <Btn variant={variant} onClick={onDeposerBesoin}>{DATA.ctaFinal.primary}</Btn>
           <Btn variant={variant} secondary>
             {DATA.ctaFinal.secondary}
           </Btn>
@@ -970,66 +1167,37 @@ function ProtoFooter({ variant }: { variant: string }) {
 }
 
 // ============================================================
-// VARIANT SWITCHER (floating bottom bar)
-// ============================================================
-
-function VariantSwitcher({ current }: { current: string }) {
-  const variants = [
-    { key: "1", label: "Terminal", emoji: ">" },
-    { key: "2", label: "Agency", emoji: "◆" },
-  ]
-
-  return (
-    <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 flex gap-1 p-1 rounded-full bg-white/10 backdrop-blur-xl border border-white/10 shadow-2xl">
-      {variants.map((v) => {
-        const active = v.key === current
-        return (
-          <a
-            key={v.key}
-            href={`?v=${v.key}`}
-            className={`flex items-center gap-2 px-4 py-2 rounded-full text-xs font-medium transition-all ${
-              active
-                ? "bg-white text-black"
-                : "text-white/50 hover:text-white hover:bg-white/10"
-            }`}
-          >
-            <span className="font-mono">{v.emoji}</span>
-            {v.label}
-          </a>
-        )
-      })}
-    </div>
-  )
-}
-
-// ============================================================
 // MAIN PAGE COMPONENT
 // ============================================================
 
 export default function ProtoContent() {
-  const searchParams = useSearchParams()
-  const variant = searchParams.get("v") || "1"
+  const [showDeposer, setShowDeposer] = useState(false)
+  const [showRejoindre, setShowRejoindre] = useState(false)
+  const variant = "2"
 
   return (
     <>
-      <VariantSwitcher current={variant} />
+      <FormModal open={showDeposer} onClose={() => setShowDeposer(false)}>
+        <FormDeposerBesoin variant={variant} onClose={() => setShowDeposer(false)} />
+      </FormModal>
+      <FormModal open={showRejoindre} onClose={() => setShowRejoindre(false)}>
+        <FormRejoindreCommunaute variant={variant} onClose={() => setShowRejoindre(false)} />
+      </FormModal>
       <div className="bg-black text-white min-h-screen">
-        <ProtoHeader variant={variant} />
+        <ProtoHeader variant={variant} onDeposerBesoin={() => setShowDeposer(true)} />
         <main>
-          <ProtoHero variant={variant} />
+          <ProtoHero variant={variant} onDeposerBesoin={() => setShowDeposer(true)} onRejoindreCommunaute={() => setShowRejoindre(true)} />
           <ProtoTeam variant={variant} />
           <ProtoProcess variant={variant} />
-          <ProtoCTAMid variant={variant} />
+          <ProtoCTAMid variant={variant} onDeposerBesoin={() => setShowDeposer(true)} />
           <ProtoTestimonials variant={variant} />
           <ProtoJobs variant={variant} />
-          <ProtoCandidates variant={variant} />
+          <ProtoCandidates variant={variant} onRejoindreCommunaute={() => setShowRejoindre(true)} />
           <ProtoFAQ variant={variant} />
-          <ProtoCTAFinal variant={variant} />
+          <ProtoCTAFinal variant={variant} onDeposerBesoin={() => setShowDeposer(true)} />
         </main>
         <ProtoFooter variant={variant} />
       </div>
-      {/* Spacer for the floating bar */}
-      <div className="h-20 bg-black" />
     </>
   )
 }
