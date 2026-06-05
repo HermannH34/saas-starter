@@ -950,7 +950,7 @@ function ProtoJobs({ variant }: { variant: string }) {
                       {job.salary}
                     </span>
                   </div>
-                  <a href={`/proto/postes/${job.slug}`} className={`inline-block px-5 py-2.5 rounded-lg ${c.btn} text-sm font-medium`}>
+                  <a href={`/landing/postes/${job.slug}`} className={`inline-block px-5 py-2.5 rounded-lg ${c.btn} text-sm font-medium`}>
                     Voir le poste
                   </a>
                 </div>
