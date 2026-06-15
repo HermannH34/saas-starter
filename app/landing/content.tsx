@@ -31,7 +31,7 @@ const DATA = {
         initial: "H",
         name: "Hermann",
         role: "L'ingénieur DevOps",
-        bio: "[à compléter]",
+        bio: "Ingénieur DevOps, Hermann est le garant technique d'Iterato. Son rôle est simple : parler d'égal à égal avec les candidats pour évaluer ce qu'ils ont vraiment dans le ventre. C'est lui qui conçoit et fait passer les entretiens techniques, en creusant les architectures, les pratiques de delivery et la maîtrise réelle des stacks (Kubernetes, Cloud, CI/CD). Grâce à son œil d'expert, aucun mot-clé sur un CV n'est validé à la légère. Avec Hermann, vous avez la certitude que chaque profil présenté a été rigoureusement testé et approuvé par un pair.",
       },
     ],
   },
@@ -94,7 +94,7 @@ const DATA = {
       },
     ],
   },
-   jobs: {
+  jobs: {
     tagline: "Postes en cours",
     listings: [
       {
@@ -631,11 +631,10 @@ function ProtoTeam({ variant }: { variant: string }) {
       </div>
 
       <div
-        className={`grid gap-8 mb-12 ${
-          isAgency
+        className={`grid gap-8 mb-12 ${isAgency
             ? "max-w-2xl mx-auto"
             : ""
-        }`}
+          }`}
       >
         {DATA.team.members.map((m, i) => {
           if (isAgency) {
@@ -737,9 +736,8 @@ function ProtoProcess({ variant }: { variant: string }) {
                 </svg>
               </button>
               <div
-                className={`px-5 pb-5 pl-[68px] ${
-                  open === i ? "" : "hidden"
-                }`}
+                className={`px-5 pb-5 pl-[68px] ${open === i ? "" : "hidden"
+                  }`}
               >
                 <p className="text-white/50 leading-relaxed text-sm">
                   {s.description}
@@ -789,11 +787,10 @@ function ProtoCTAMid({ variant, onDeposerBesoin }: { variant: string; onDeposerB
   return (
     <Section id="cta-mid">
       <div
-        className={`${
-          isAgency
+        className={`${isAgency
             ? "text-center max-w-2xl mx-auto"
             : `border-l-2 ${c.border} ${c.bg} rounded-r-xl p-8 md:p-12 max-w-3xl`
-        }`}
+          }`}
       >
         <h2
           className={`font-bold mb-4 ${isTerminal ? "font-mono text-2xl" : isAgency ? "text-4xl md:text-5xl tracking-tight" : "text-3xl md:text-4xl tracking-tight"}`}
@@ -965,9 +962,8 @@ function ProtoJobs({ variant }: { variant: string }) {
             <button
               key={i}
               onClick={() => setCurrent(i)}
-              className={`w-2 h-2 rounded-full transition-all ${
-                i === current ? `${c.dot} w-6` : "bg-white/20"
-              }`}
+              className={`w-2 h-2 rounded-full transition-all ${i === current ? `${c.dot} w-6` : "bg-white/20"
+                }`}
             />
           ))}
         </div>
@@ -988,11 +984,10 @@ function ProtoCandidates({ variant, onRejoindreCommunaute }: { variant: string; 
   return (
     <Section id="candidats">
       <div
-        className={`${
-          isAgency
+        className={`${isAgency
             ? "text-center max-w-3xl mx-auto"
             : `border-l-2 ${c.border} ${c.bg} rounded-r-xl p-8 md:p-12 max-w-3xl`
-        }`}
+          }`}
       >
         <h2
           className={`font-bold mb-5 ${isTerminal ? "font-mono text-2xl md:text-3xl" : isAgency ? "text-3xl md:text-4xl tracking-tight" : "text-2xl md:text-3xl tracking-tight"}`}
@@ -1066,9 +1061,8 @@ function ProtoFAQ({ variant }: { variant: string }) {
               </svg>
             </button>
             <div
-              className={`px-5 pb-5 ${isTerminal ? "pl-10" : "pl-[68px]"} ${
-                open === i ? "" : "hidden"
-              }`}
+              className={`px-5 pb-5 ${isTerminal ? "pl-10" : "pl-[68px]"} ${open === i ? "" : "hidden"
+                }`}
             >
               <p className={`text-white/50 leading-relaxed text-sm ${isTerminal ? "font-mono" : ""}`}>
                 {item.a}
@@ -1093,11 +1087,10 @@ function ProtoCTAFinal({ variant, onDeposerBesoin }: { variant: string; onDepose
   return (
     <Section>
       <div
-        className={`${
-          isAgency
+        className={`${isAgency
             ? "text-center max-w-3xl mx-auto"
             : ""
-        }`}
+          }`}
       >
         <h2
           className={`font-bold mb-5 ${isTerminal ? "font-mono text-2xl md:text-3xl" : isAgency ? "text-4xl md:text-6xl tracking-tight leading-[1.1]" : "text-3xl md:text-4xl tracking-tight"}`}
